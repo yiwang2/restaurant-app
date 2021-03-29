@@ -15,3 +15,6 @@ backend/review-service/.factorypath
 backend/review-service/.classpath
 backend/restaurant-service/.project
 backend/restaurant-service/.factorypath
+backend/service-auth/.classpath
+backend/service-auth/.factorypath
+backend/service-auth/.project

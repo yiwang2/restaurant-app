@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: service-auth
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/restaurant_service_oauth?autoReconnect=true
+    username: root
+    password: password
+  jpa: 
+    hibernate: 
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+         dialect: org.hibernate.dialect.MySQL55Dialect
+  session:
+    store-type: jdbc
+
+
+
+server:
+  port: 9098
+ 
+app:
+  eureka-username: u
+  eureka-password: p
+  
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${app.eureka-username}:${app.eureka-password}@localhost:8761/eureka/
+      
+      
