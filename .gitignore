@@ -1,0 +1,17 @@
+
+backend/eureka-server/.classpath
+*.prefs
+backend/eureka-server/.factorypath
+backend/eureka-server/.project
+backend/restaurant-service/.classpath
+backend/user-service/.project
+backend/user-service/.factorypath
+backend/user-service/.classpath
+backend/shared-service/.project
+backend/shared-service/.factorypath
+backend/shared-service/.classpath
+backend/review-service/.project
+backend/review-service/.factorypath
+backend/review-service/.classpath
+backend/restaurant-service/.project
+backend/restaurant-service/.factorypath
