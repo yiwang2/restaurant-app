@@ -1,4 +1,4 @@
-package com.topal.application.userdetails;
+package com.topal.om.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -37,6 +37,5 @@ public class UserProfile implements Serializable
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
-    private User user;
+    private UserInfo user;
 }
-

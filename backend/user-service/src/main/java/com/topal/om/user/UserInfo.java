@@ -1,8 +1,11 @@
 package com.topal.om.user;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -34,6 +37,9 @@ public class UserInfo {
 	@UserTypeSubset(anyOf = {UserType.ADMIN, UserType.OWNER, UserType.REGULAR})
 	private UserType userType;
 	
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private UserProfile userProfile;
+	
 	
 	public Integer getId() {
 		return id;
@@ -59,5 +65,13 @@ public class UserInfo {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
+	
+	
 	
 }

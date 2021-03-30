@@ -1,16 +1,13 @@
 package com.topal.application.userdetails;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -49,9 +46,6 @@ public class User implements Serializable
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private UserProfile userProfile;
-
     @ManyToMany
     @JoinTable(
             name = "user_role",
@@ -65,12 +59,11 @@ public class User implements Serializable
 
     }
 
-    public User(String username, String password, Boolean active, UserProfile userProfile)
+    public User(String username, String password, Boolean active)
     {
         this.username = username;
         this.password = password;
         this.active = active;
-        this.userProfile = userProfile;
     }
     
     
@@ -129,14 +122,6 @@ public class User implements Serializable
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
 	}
 
 	public Collection<Role> getRoles() {
