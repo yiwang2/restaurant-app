@@ -1,4 +1,4 @@
-package com.topal.om.user;
+package com.topal.application.om;
 
 public enum UserType {
 

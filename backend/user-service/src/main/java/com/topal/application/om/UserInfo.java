@@ -1,4 +1,4 @@
-package com.topal.om.user;
+package com.topal.application.om;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,19 +16,18 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.topal.om.validator.UserTypeSubset;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "user") 
-@NoArgsConstructor @AllArgsConstructor
 public class UserInfo {
 
 	@Id
 	@GeneratedValue(generator = "randomUserId")
 	@GenericGenerator(name = "randomUserId", strategy = "com.topal.om.utils.RandomIntegerIdGenerator")
 	@JsonInclude(Include.NON_NULL)
-	private Integer id;
+	private Long id;
 	@NotBlank (message = "The user name shall be left as blank")
 	private String userName;
 	@NotBlank (message = "The user E-mail address shall be left as blank")
@@ -40,11 +39,14 @@ public class UserInfo {
 	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserProfile userProfile;
 	
-	
-	public Integer getId() {
+	public UserInfo () {
+		
+	}
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUserName() {

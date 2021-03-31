@@ -1,4 +1,4 @@
-package com.topal.om.user;
+package com.topal.application.om;
 
 import javax.persistence.AttributeConverter;
 import java.util.stream.Stream;

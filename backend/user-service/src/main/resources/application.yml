@@ -5,7 +5,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/user-service-db
+    url: jdbc:mysql://127.0.0.1:3306/user_service
     username: root
     password: password
   jpa: 
@@ -15,9 +15,31 @@ spring:
     properties:
       hibernate:
          dialect: org.hibernate.dialect.MySQL55Dialect
+  main:
+     allow-bean-definition-overriding: true
+        
+
+app:
+  eureka-username: u
+  eureka-password: p
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${app.eureka-username}:${app.eureka-password}@localhost:8761/eureka/
+    fetch-registry: true
+ 
+client:
+  resourceServerUrl: http://localhost:9098
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: ${client.resourceServerUrl}/user/current
+    client:
+      clientId: admin
+      clientSecret: password1234
+      accessTokenUri: ${client.resourceServerUrl}/oauth/token
+      grant-type: client_credentials,password
+      scope: server
       

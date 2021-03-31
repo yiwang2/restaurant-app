@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import com.topal.om.user.UserType;
+
+import com.topal.application.om.UserType;
 
 public class UserTypeValidator implements ConstraintValidator<UserTypeSubset, UserType>{
 

@@ -1,6 +1,6 @@
 package com.topal.application.config;
 
-import com.topal.application.service.CustomUserDetailsService;
+import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +22,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Collections;
+import com.topal.application.config.constants.ApplicationConstants;
+import com.topal.application.config.constants.AuthorityConstants;
+import com.topal.application.service.CustomUserDetailsService;
 
 
 @Configuration
@@ -52,11 +54,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http.authorizeRequests()
                 .antMatchers("/oauth/token").permitAll()
                 .antMatchers("/anonymous*").anonymous()
-                .antMatchers("/register").permitAll()
-                .antMatchers("/users/**").hasAuthority(AuthorityConstants.ROLE_ADMIN)
-                .antMatchers("/admin/**").hasAuthority(AuthorityConstants.ROLE_ADMIN)
-                .antMatchers("/profile/**").hasAuthority(AuthorityConstants.ROLE_USER)
-                .anyRequest().authenticated()
+                //.antMatchers("/register").permitAll()
+                .antMatchers("/user/**").hasAuthority(AuthorityConstants.ROLE_ADMIN)
+                //.antMatchers("/admin/**").hasAuthority(AuthorityConstants.ROLE_ADMIN)
+                //.antMatchers("/profile/**").hasAuthority(AuthorityConstants.ROLE_USER)
+                //.anyRequest().authenticated()
                 .and()
                     .exceptionHandling()
                 .and()

@@ -1,4 +1,4 @@
-package com.topal.application.config;
+package com.topal.application.config.constants;
 
 public class AuthorityConstants
 {
@@ -8,8 +8,8 @@ public class AuthorityConstants
     
     public static final String ROLE_OWNER = "ROLE_OWNER";
 
-    private AuthorityConstants()
+    public AuthorityConstants()
     {
-        // Hides AuthorityConstants
+        
     }
 }

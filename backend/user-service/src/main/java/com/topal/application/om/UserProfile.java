@@ -1,4 +1,4 @@
-package com.topal.om.user;
+package com.topal.application.om;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

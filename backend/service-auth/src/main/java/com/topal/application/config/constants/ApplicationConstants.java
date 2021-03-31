@@ -1,4 +1,4 @@
-package com.topal.application.config;
+package com.topal.application.config.constants;
 
 public class ApplicationConstants
 {

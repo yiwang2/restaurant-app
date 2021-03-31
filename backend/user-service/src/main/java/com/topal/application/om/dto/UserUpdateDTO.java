@@ -1,10 +1,10 @@
-package com.topal.om.user.dto;
+package com.topal.application.om.dto;
 
 import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.topal.om.user.UserType;
+import com.topal.application.om.UserType;
 import com.topal.om.validator.UserTypeSubset;
 
 import lombok.AllArgsConstructor;
